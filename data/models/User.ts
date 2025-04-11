@@ -8,8 +8,8 @@ export interface IUser {
 }
 
 export class User implements IUser {
-    private inbox = [];
-    private outbox = [];
+    private inbox: string[] = [];
+    private outbox: string[] = [];
     protected username =  "";
 
     constructor(username) {
@@ -17,7 +17,7 @@ export class User implements IUser {
     }
     
     getName() {
-        return this.#username;
+        return this.username;
     }
 
     savein(message: string) {
@@ -33,6 +33,6 @@ export class User implements IUser {
     }   
 
     getLatestSend() {
-        return this.outbox[this.inbox.length - 1]
+        return this.outbox[this.outbox.length - 1]
     }
 }
