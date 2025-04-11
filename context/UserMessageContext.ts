@@ -3,7 +3,7 @@
 import { RolesManager } from "../context/Roles.js";
 import { SendMessage } from "../interactions/SendMessage.js";
 import { ReceiveMessage } from "../interactions/ReceiveMessage.js";
-import { log } from "../log.js";
+import logger from "../utils/logger.js";
 
 export class UserMessageContext {
   constructor(accounts) {
@@ -20,7 +20,7 @@ export class UserMessageContext {
   }
   
   execute(message) {
-    log.warn(`UserMessageContext (execute): ${message}`);
+    logger.warn(`UserMessageContext (execute): ${message}`);
     this.source.sendMessage(message);
   }
 }

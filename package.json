@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "pino": "^9.6.0",
+    "pino-logger": "^1.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
