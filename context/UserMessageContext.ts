@@ -1,12 +1,25 @@
-"use strict";
+import { RolesManager } from "./Roles";
+import { SendMessage } from "../interactions/SendMessage";
+import { ReceiveMessage } from "../interactions/ReceiveMessage";
+import logger from "../utils/logger";
 
-import { RolesManager } from "../context/Roles.js";
-import { SendMessage } from "../interactions/SendMessage.js";
-import { ReceiveMessage } from "../interactions/ReceiveMessage.js";
-import logger from "../utils/logger.js";
+interface Account {
+  [key: string]: any;
+  context?: any;
+  sendMessage?: (message: string) => void;
+  receiveMessage?: (message: string) => void;
+}
+
+interface Accounts {
+  from: Account;
+  to: Account;
+}
 
 export class UserMessageContext {
-  constructor(accounts) {
+  source: Account;
+  sink: Account;
+
+  constructor(accounts: Accounts) {
     RolesManager.applyRoles(this, {
       "source": {
         "object": accounts["from"],
@@ -19,8 +32,8 @@ export class UserMessageContext {
     });
   }
   
-  execute(message) {
+  execute(message: string): void {
     logger.warn(`UserMessageContext (execute): ${message}`);
-    this.source.sendMessage(message);
+    this.source.sendMessage!(message);
   }
 }

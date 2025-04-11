@@ -1,7 +1,21 @@
-"use strict";
+type Constructor<T = {}> = new (...args: any[]) => T;
+
+interface RoleObject {
+  context?: any;
+  [key: string]: any;
+}
+
+interface RoleConfig {
+  object: RoleObject;
+  roles: Constructor[] | Constructor;
+}
+
+interface RolesConfig {
+  [roleName: string]: RoleConfig;
+}
 
 export class RolesManager {
-  static applyRoles(target, rolesConfig) {
+  static applyRoles(target: any, rolesConfig: RolesConfig): void {
     for (const roleName in rolesConfig) {
       if (rolesConfig.hasOwnProperty(roleName)) {
         const config = rolesConfig[roleName];

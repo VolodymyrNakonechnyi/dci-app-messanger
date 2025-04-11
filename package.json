@@ -7,13 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "npx vitest"
   },
   "dependencies": {
     "pino": "^9.6.0",
     "pino-logger": "^1.0.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "vitest": "^3.1.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
