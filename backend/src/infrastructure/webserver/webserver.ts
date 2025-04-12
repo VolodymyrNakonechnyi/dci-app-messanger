@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
-import { config } from '../config/env'
+import { config } from '../config/env.js'
 
 class App {
   public app: FastifyInstance
@@ -8,33 +8,20 @@ class App {
 
   constructor(appInit: { plugins: any; routes: any }) {
     this.app = fastify({
-        logger: {
-            level: config.nodeEnv === 'development' ? 'debug' : 'info',
-            transport: {
-                target: 'pino-pretty',
-                options: {
-                    translateTime: 'HH:MM:ss Z',
-                    colorize: true,
-                    ignore: 'pid,hostname',
-                    levelFirst: true,
-                    messageFormat: '{msg} {reqId} {req.method} {req.url}',
-                    errorLikeObjectKeys: ['err', 'error'],
-                    customPrettifiers: {
-                        time: (timestamp: string) => `🕒 ${timestamp}`,
-                        level: (level: string) => {
-                            const icons: Record<string, string> = {
-                                debug: 'DEBUG:',
-                                info: 'INFO:',
-                                warn: 'WARN:',
-                                error: 'ERROR:',
-                                fatal: 'FATAL:'
-                            };
-                            return `${icons[level] || '•'} ${level.toUpperCase()}`;
-                        }
-                    }
-                }
-            }
+      logger: {
+        level: config.nodeEnv === 'development' ? 'debug' : 'info',
+        transport: {
+          target: 'pino-pretty',
+          options: {
+            translateTime: 'HH:MM:ss Z',
+            colorize: true,
+            ignore: 'pid,hostname',
+            levelFirst: true,
+            messageFormat: '{msg} {reqId} {req.method} {req.url}',
+            errorLikeObjectKeys: ['err', 'error']
+          }
         }
+      }
     });
 
     this.app.addHook('preHandler', (req, _reply, done) => {
