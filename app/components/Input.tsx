@@ -3,28 +3,27 @@ import styled from 'styled-components';
 
 const InputContainer = styled.div`
   position: relative;
-  margin-bottom: 24px;
+  padding-bottom: 24px;
   width: 100%;
 `;
 
 const Label = styled.label<{ isActive: boolean; hasError: boolean }>`
   position: absolute;
-  left: 16px;
+  left: 1rem;
   color: ${props => props.hasError ? '#ff3b30' : props.isActive ? '#4c6ef5' : '#9e9e9e'};
   pointer-events: none;
   transform-origin: left top;
-  font-size: 16px;
+  font-size: 1rem;
   transition: transform 0.2s ease-out, color 0.2s ease-out;
   transform: ${props => props.isActive ? 'translateY(-20px) scale(0.75)' : 'translateY(12px) scale(1)'};
 `;
 
 const StyledInput = styled.input<{ hasError: boolean }>`
-  width: 100%;
-  height: 56px;
-  padding: 16px;
-  font-size: 16px;
+  width: -webkit-fill-available;
+  padding: 1rem;
+  font-size: 1.5rem;
   border: 2px solid ${props => props.hasError ? '#ff3b30' : props.disabled ? '#e0e0e0' : '#e0e0e0'};
-  border-radius: 8px;
+  border-radius: 0.5rem;
   color: #212121;
   background-color: ${props => props.disabled ? '#f5f5f5' : '#ffffff'};
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -46,15 +45,15 @@ const StyledInput = styled.input<{ hasError: boolean }>`
 
 const ErrorMessage = styled.p`
   color: #ff3b30;
-  font-size: 12px;
+  font-size: 0.75rem;
   margin: 4px 0 0 4px;
   padding: 0;
 `;
 
 const HelperText = styled.p`
   color: #757575;
-  font-size: 12px;
-  margin: 4px 0 0 4px;
+  font-size: 0.75rem;
+  margin: 0.25rem 0 0 0.25rem;
   padding: 0;
 `;
 

@@ -12,6 +12,7 @@ const StyledButton = styled.button<ButtonProps>`
   align-items: center;
   justify-content: center;
   border-radius: 8px;
+  min-height: 4rem;
   font-weight: 600;
   transition: all 0.2s ease-in-out;
   cursor: pointer;
@@ -19,17 +20,17 @@ const StyledButton = styled.button<ButtonProps>`
   /* Size variations */
   padding: ${props => {
     switch (props.size) {
-      case 'small': return '8px 16px';
-      case 'large': return '16px 32px';
-      default: return '12px 24px'; // medium (default)
+      case 'small': return '0.5rem 1rem';
+      case 'large': return '1rem 2rem';
+      default: return '0.75rem 1.5rem'; // medium (default)
     }
   }};
   
   font-size: ${props => {
     switch (props.size) {
-      case 'small': return '14px';
-      case 'large': return '18px';
-      default: return '16px'; // medium (default)
+      case 'small': return '0.8rem';
+      case 'large': return '1.2rem';
+      default: return '1.5rem'; // medium (default)
     }
   }};
   
@@ -52,7 +53,7 @@ const StyledButton = styled.button<ButtonProps>`
   
   border: ${props => {
     switch (props.variant) {
-      case 'outline': return '2px solid #4c6ef5';
+      case 'outline': return '0.2 solid #4c6ef5';
       default: return 'none';
     }
   }};

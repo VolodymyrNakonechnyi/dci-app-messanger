@@ -4,8 +4,8 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 
 const FormContainer = styled.div`
-  max-width: 400px;
-  margin: 40px auto;
+  position: relative;
+  min-width: 30rem;
   padding: 24px;
   background-color: #ffffff;
   border-radius: 12px;
