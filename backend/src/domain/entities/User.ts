@@ -5,7 +5,7 @@ export class User implements IUser {
     private outbox: string[] = [];
     protected username: string = "";
 
-    constructor(username) {
+    constructor(username: string) {
         this.username = username;
     }
     
