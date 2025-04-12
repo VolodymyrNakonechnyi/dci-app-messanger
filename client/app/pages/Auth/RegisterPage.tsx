@@ -13,11 +13,9 @@ const PageWrapper = styled.div`
 
 const RegisterPage: React.FC = () => {
   return (
-    <div style={{ 
-
-    }}>
+    <PageWrapper>
       <RegisterForm />
-    </div>
+    </PageWrapper>
   );
 };
 
