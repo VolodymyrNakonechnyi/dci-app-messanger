@@ -22,10 +22,22 @@ export class User implements IUser {
     }
     
     getLatestReceive() {
-        return this.inbox[this.inbox.length - 1]
+        const latestReceive = this.inbox[this.inbox.length - 1];
+        
+        if(!latestReceive) {
+            return ""
+        }
+
+        return latestReceive;
     }   
 
     getLatestSend() {
-        return this.outbox[this.outbox.length - 1]
+        const latestSend = this.outbox[this.outbox.length - 1];
+        
+        if(!latestSend) {
+            return ""
+        }
+
+        return latestSend; 
     }
 }
