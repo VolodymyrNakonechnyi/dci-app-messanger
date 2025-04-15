@@ -10,4 +10,4 @@ const pool = new Pool({
   database: config.db.database,
 });
 
-export const db = drizzle(pool);
+export const db = drizzle({ client: pool});

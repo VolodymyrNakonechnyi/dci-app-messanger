@@ -26,9 +26,9 @@ class App {
 
     this.app.addHook('preHandler', (req, _reply, done) => {
       if (req.body) {
-        req.log.info({ body: req.body }, 'parsed body');
+        req.log.info({ body: req.body }, 'parsed body')
       }
-      done();
+      done()
     });
 
     this.register(appInit.plugins);
@@ -37,19 +37,15 @@ class App {
 
   private register(plugins: { forEach: (arg0: (plugin: any) => void) => void }) {
     plugins.forEach((plugin) => {
-      this.app.register(plugin);
-    });
+      this.app.register(plugin)
+    })
   }
 
   public routes(routes: { forEach: (arg0: (routes: any) => void) => void }) {
     routes.forEach((route) => {
-      const router = new route();
-      this.app.register(router.routes, { prefix: router.prefix_route });
+      const router = new route()
+      this.app.register(router.routes, { prefix: router.prefix_route })
     })
-
-    this.app.get('/healthcheck', async (_request: FastifyRequest, reply: FastifyReply) => {
-      reply.send({ healthcheck: 'server is alive' })
-    });
   }
 
   public listen() {
