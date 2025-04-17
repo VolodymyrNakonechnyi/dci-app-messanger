@@ -1,11 +1,17 @@
 import App from "./infrastructure/webserver/webserver";
-import AuthRoute from "./infrastructure/routes/AuthRoute";
 import SwaggerPlugin from "./infrastructure/plugins/swagger.plugin";
-import HealthcheckRoute from "./infrastructure/routes/HealthcheckRoute";
+
+import { container, setup } from "./infrastructure/config/di-config";
+
+setup();
+
+import healthCheckRoute from "./infrastructure/routes/HealthcheckRoute";
+
+const authRoute = container.resolve("authRoute");
 
 export const app = new App({
   plugins: [SwaggerPlugin],
-  routes: [AuthRoute, HealthcheckRoute],
+  routes: [authRoute, healthCheckRoute],
 });
 
 app.listen();

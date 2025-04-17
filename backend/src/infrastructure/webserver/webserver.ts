@@ -42,9 +42,8 @@ class App {
   }
 
   public routes(routes: { forEach: (arg0: (routes: any) => void) => void }) {
-    routes.forEach((route) => {
-      const router = new route()
-      this.app.register(router.routes, { prefix: router.prefix_route })
+    routes.forEach((route) => {      
+      this.app.register(route.routes, { prefix: route.prefix_route })
     })
   }
 

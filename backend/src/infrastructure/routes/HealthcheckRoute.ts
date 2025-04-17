@@ -23,4 +23,6 @@ class HealthcheckRoute {
     }
 }
 
-export default HealthcheckRoute;
+const healthCheckRoute = new HealthcheckRoute();
+
+export default healthCheckRoute;

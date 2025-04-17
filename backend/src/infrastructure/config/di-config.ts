@@ -1,7 +1,8 @@
-import awilix from "awilix";
+import * as awilix from "awilix";
 import { AuthController } from "../controller/auth.controller";
-import { UserService } from "@/application/services/user.service";
+import { AuthService } from "../services/auth.service";
 import { UserRepository } from "../repositories/user.repository";
+import AuthRoute from "../routes/AuthRoute";
 import { db } from "../database/connection";
 
 const container = awilix.createContainer({
@@ -10,13 +11,12 @@ const container = awilix.createContainer({
 
 function setup() {
     container.register({
-        userController: awilix.asClass(AuthController),
-        userService: awilix.asClass(UserService),
-        userDAO: awilix.asClass(UserRepository),
-        db: awilix.asValue(db)
+        db: awilix.asValue(db),
+        userRepository: awilix.asClass(UserRepository).singleton(),
+        authService: awilix.asClass(AuthService).singleton(),
+        authController: awilix.asClass(AuthController).singleton(),
+        authRoute: awilix.asClass(AuthRoute).singleton(),
     });
-
-    return container;
 }
 
 export { container, setup }

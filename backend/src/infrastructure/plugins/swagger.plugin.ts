@@ -5,12 +5,11 @@ import fastifyPlugin from 'fastify-plugin'
 
 export default fastifyPlugin<FastifyInstance>(
   async (fastify) => {
-    // Swagger configuration
     const swaggerOptions = {
       openapi: {
         info: {
-          title: 'Hospital Task',
-          description: 'Hospital Task.',
+          title: 'Messanger',
+          description: 'Messanger',
           version: '1.0.0',
         },
       },

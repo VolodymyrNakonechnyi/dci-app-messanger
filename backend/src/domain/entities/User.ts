@@ -1,14 +1,24 @@
 import { IUser } from "../interface/user.interface.js";
 
+export interface Props {
+    id: number,
+    username: string
+}
 export class User implements IUser {
     private inbox: string[] = [];
     private outbox: string[] = [];
-    protected username: string = "";
+    private id: number;
+    private username: string = "";
 
-    constructor(username: string) {
+    constructor({ id, username }: Props) {
+        this.id = id;
         this.username = username;
     }
     
+    getId() {
+        return this.id;
+    }
+
     getName() {
         return this.username;
     }

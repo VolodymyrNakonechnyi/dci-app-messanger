@@ -1,13 +1,16 @@
-import { drizzle } from 'drizzle-orm/node-postgres';
-import { Pool } from 'pg';
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 import { config } from '../config/env';
 
-const pool = new Pool({
+const queryClient = postgres({
   host: config.db.host,
   port: config.db.port,
-  user: config.db.user,
+  username: config.db.user,
   password: config.db.password,
   database: config.db.database,
 });
 
-export const db = drizzle({ client: pool});
+export const db = {
+  client: drizzle(queryClient),
+  connection: queryClient
+};
