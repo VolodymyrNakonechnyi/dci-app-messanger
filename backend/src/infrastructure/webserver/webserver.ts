@@ -1,5 +1,5 @@
 import fastify, { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
-import { config } from '../config/env.js'
+import { config } from '../config/env'
 
 class App {
   public app: FastifyInstance

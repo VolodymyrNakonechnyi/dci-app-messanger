@@ -1,10 +1,10 @@
-export const CreateRoomSchema = {
-    type: 'object',
-    required: ['name', 'isGroup'],
-    properties: {
-      createdById: { type: 'number'},
-      name: { type: 'string', minLength: 1 },
-      isGroup: { type: 'boolean' }
-    }
-  };
-  
+import { Type } from "@sinclair/typebox";
+
+export const CreateRoomSchema = Type.Object({
+  name: Type.String({ minLength: 1 }),
+  isGroup: Type.Boolean(),
+  createdById: Type.Optional(Type.Number())
+}, {
+  additionalProperties: false,
+  required: ['name', 'isGroup']
+});

@@ -8,10 +8,16 @@ import healthCheckRoute from "./infrastructure/routes/HealthcheckRoute";
 
 const authRoute = container.resolve("authRoute");
 const roomRoute = container.resolve("roomRoute");
+const messageRoute = container.resolve("messageRoute");
 
 export const app = new App({
   plugins: [SwaggerPlugin],
-  routes: [authRoute, roomRoute, healthCheckRoute],
+  routes: [
+    authRoute, 
+    roomRoute, 
+    messageRoute, 
+    healthCheckRoute
+  ],
 });
 
 app.listen();
