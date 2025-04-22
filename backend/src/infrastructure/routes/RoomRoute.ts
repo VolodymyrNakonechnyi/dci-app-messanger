@@ -1,6 +1,6 @@
 import { FastifyInstance, FastifyPluginOptions } from 'fastify';
 import { IRoomController } from '../controller/room.controller';
-import { CreateRoomSchema } from '../../domain/validation/create-room.validate';
+import { CreateRoomSchema } from '../../domain/validation/create_room.validate';
 
 
 class RoomRoute {
