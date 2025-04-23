@@ -1,7 +1,7 @@
 import { RolesManager } from "./Roles";
 import { SendMessage } from "../interactions/SendMessage";
 import { ReceiveMessage } from "../interactions/ReceiveMessage";
-import logger from "../utils/logger";
+import logger from "../../utils/logger";
 
 interface Account {
   [key: string]: any;

@@ -1,22 +1,33 @@
 export interface IUser {
-    getName(): string;
+    get getId(): number;
+    get getName(): string;
     savein(message: string): void;
     saveout(message: string): void;
     getLatestReceive(): string;
     getLatestSend(): string;
+}
 
+export interface JsonUser {
+    id: number;
+    username: string;
 }
 
 export class User implements IUser {
     private inbox: string[] = [];
     private outbox: string[] = [];
-    protected username =  "";
+    private id: number; 
+    private username: string;
 
-    constructor(username) {
+    constructor(id: number, username: string) {
+        this.id = id;
         this.username = username;
     }
     
-    getName() {
+    get getId() {
+        return this.id;
+    }
+
+    get getName() {
         return this.username;
     }
 
@@ -34,5 +45,9 @@ export class User implements IUser {
 
     getLatestSend() {
         return this.outbox[this.outbox.length - 1]
+    }
+
+    static fromJson({ id, username }: JsonUser) {
+        return new User(id, username);
     }
 }

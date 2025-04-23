@@ -4,6 +4,7 @@ import { createBrowserRouter, Navigate, redirect, RouterProvider } from "react-r
 import store from './store'
 import { Provider } from 'react-redux'
 import RegisterPage from "./pages/Auth/RegisterPage";
+import ChatPage from "./pages/ChatPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RegisterPage />
+  },
+  {
+    path: "/chat",
+    element: <ChatPage />
   }
 ]);
 
