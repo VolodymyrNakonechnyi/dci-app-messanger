@@ -1,4 +1,5 @@
 import { Room } from "../../../domain/entities/Room";
+import { IRoomRepository } from "../../../domain/interfaces/room/room-repository.interface";
 
 export class RoomRepositoryMock implements IRoomRepository {
     private readonly rooms: Room[] = [

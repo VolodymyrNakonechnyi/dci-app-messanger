@@ -1,4 +1,5 @@
 import { Message } from "../../../domain/entities/Message";
+import { IMessageRepository } from "../../../domain/interfaces/message/message-repository.interface";
 
 export class MessageRepositoryMock implements IMessageRepository {
     private readonly messages: Message[] = [

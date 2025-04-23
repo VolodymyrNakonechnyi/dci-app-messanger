@@ -1,4 +1,5 @@
 import { RoomParticipant } from "../../../domain/entities/RoomParticipant";
+import { IRoomParticipantRepository } from "../../../domain/interfaces/room-participants/room-participants-repository.interface";
 
 export class RoomParticipantRepositoryMock implements IRoomParticipantRepository {
     private readonly participants: RoomParticipant[] = [
