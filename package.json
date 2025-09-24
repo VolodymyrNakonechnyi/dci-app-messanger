@@ -11,10 +11,14 @@
     "test": "npx vitest"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "lucide-react": "^0.544.0",
     "pino": "^9.6.0",
     "pino-logger": "^1.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.2",
+    "tailwindcss": "^4.1.13",
     "vitest": "^3.1.1"
   },
   "devDependencies": {
