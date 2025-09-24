@@ -1,0 +1,10 @@
+{
+	"homepage": {
+		"title": "ChatSpace",
+		"subtitle": "Chat with friends in real time",
+		"groupChats": "Group Chats",
+		"privacySettings": "Privacy Settings",
+		"loginButton": "Login to Chat",
+		"demoButton": "Demo Chat"
+	}
+}

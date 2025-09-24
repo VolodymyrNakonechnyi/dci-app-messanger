@@ -1,0 +1,10 @@
+{
+	"homepage": {
+		"title": "ChatSpace",
+		"subtitle": "Спілкуйтесь з друзями в реальному часі",
+		"groupChats": "Групові чати",
+		"privacySettings": "Налаштування приватності",
+		"loginButton": "Увійти в чат",
+		"demoButton": "Демо чат"
+	}
+}
